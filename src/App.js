@@ -3,6 +3,7 @@ import React from 'react';
 import './App.scss';
 
 import HeaderComponent from './components/HeaderComponent/HeaderComponent';
+import ResultComponent from './components/ResultComponent/ResultComponent';
 import SearchComponent from './components/SearchCompoent/SearchComponent';
 
 function App() {
@@ -10,6 +11,7 @@ function App() {
     <div className='app'>
       <HeaderComponent />
       <SearchComponent />
+      <ResultComponent />
     </div>
   );
 }
