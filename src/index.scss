@@ -1,0 +1,33 @@
+:root {
+  --primary-color: #004c3f;
+  --bg-color: #fbf7ed;
+  --light-text: #fbf7ed;
+}
+
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  margin: 0;
+  font-family: 'Nunito Sans', sans-serif;
+  font-size: 1.6rem;
+  font-weight: 300;
+  background-color: var(--bg-color);
+  color: #000;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
