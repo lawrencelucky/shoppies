@@ -9,10 +9,71 @@
   }
 
   .movieCard__image {
-    img {
+    position: relative;
+    .moviePoster {
       width: 300px;
       height: 300px;
       object-fit: cover;
+      transition: opacity 0.5s;
+      -webkit-transition: opacity 0.5s;
+      -moz-transition: opacity 0.5s;
+      -ms-transition: opacity 0.5s;
+      -o-transition: opacity 0.5s;
+    }
+
+    .moviePoster-visible {
+      opacity: 1;
+    }
+
+    .moviePoster-hidden {
+      opacity: 0;
+    }
+
+    .loader {
+      position: absolute;
+      top: 0;
+      background-color: var(--primary-color);
+      color: var(--light-text);
+      width: 300px;
+      height: 300px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      transition: opacity 0.5s;
+      -webkit-transition: opacity 0.5s;
+      -moz-transition: opacity 0.5s;
+      -ms-transition: opacity 0.5s;
+      -o-transition: opacity 0.5s;
+
+      p {
+        font-size: 3rem;
+        font-weight: 600;
+      }
+    }
+
+    .noMoviePoster {
+      background-color: var(--primary-color);
+      color: var(--light-text);
+      width: 300px;
+      height: 300px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      transition: opacity 0.5s;
+      -webkit-transition: opacity 0.5s;
+      -moz-transition: opacity 0.5s;
+      -ms-transition: opacity 0.5s;
+      -o-transition: opacity 0.5s;
+
+      p {
+        font-size: 3rem;
+        font-weight: 600;
+        transform: rotate(-45deg);
+        -webkit-transform: rotate(-45deg);
+        -moz-transform: rotate(-45deg);
+        -ms-transform: rotate(-45deg);
+        -o-transform: rotate(-45deg);
+      }
     }
   }
 
@@ -21,7 +82,7 @@
     flex-direction: column;
     justify-content: space-between;
     align-items: flex-start;
-    height: 300px;
+    width: 300px;
     height: 300px;
 
     .movie__details {
@@ -29,6 +90,7 @@
         font-size: 3rem;
         font-weight: 300;
         color: var(--primary-color);
+        max-width: 300px;
       }
 
       .movie__year {

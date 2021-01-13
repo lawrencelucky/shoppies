@@ -2,7 +2,12 @@
   display: flex;
   justify-content: space-between;
   padding: 1.5rem 8rem;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: var(--bg-color);
   border-bottom: 1px solid var(--primary-color);
+  z-index: 10;
 
   .header__nav {
     ul {
@@ -14,6 +19,7 @@
         font-size: 1.3rem;
         font-weight: 400;
         position: relative;
+        cursor: pointer;
 
         span {
           font-size: 1.8rem;

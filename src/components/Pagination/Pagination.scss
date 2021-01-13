@@ -1,0 +1,70 @@
+.pagination {
+  display: flex;
+  justify-content: center;
+  margin: 10rem 0;
+
+  &__container {
+    position: relative;
+    width: 30%;
+
+    .previous--btn {
+      position: absolute;
+      left: 0;
+      background-color: var(--primary-color);
+      color: var(--light-text);
+      font-family: 'Nunito Sans', sans-serif;
+      font-size: 1.6rem;
+      padding: 1rem 3rem;
+      border: 0;
+      border-radius: 10px;
+      -webkit-border-radius: 10px;
+      -moz-border-radius: 10px;
+      -ms-border-radius: 10px;
+      -o-border-radius: 10px;
+      outline: 0;
+      cursor: pointer;
+
+      &:hover {
+        opacity: 0.8;
+      }
+
+      &:active {
+        opacity: 1;
+      }
+    }
+
+    .pageNumber {
+      position: absolute;
+      right: 50%;
+      font-size: 3rem;
+      color: var(--primary-color);
+      font-weight: 600;
+    }
+
+    .next--btn {
+      position: absolute;
+      right: 0;
+      background-color: var(--primary-color);
+      color: var(--light-text);
+      font-family: 'Nunito Sans', sans-serif;
+      font-size: 1.6rem;
+      padding: 1rem 3rem;
+      border: 0;
+      border-radius: 10px;
+      -webkit-border-radius: 10px;
+      -moz-border-radius: 10px;
+      -ms-border-radius: 10px;
+      -o-border-radius: 10px;
+      outline: 0;
+      cursor: pointer;
+
+      &:hover {
+        opacity: 0.8;
+      }
+
+      &:active {
+        opacity: 1;
+      }
+    }
+  }
+}
