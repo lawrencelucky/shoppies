@@ -2,14 +2,12 @@ import React from 'react';
 
 import './NomineesComponent.scss';
 
-import MovieCardComponent from '../MovieCardComponent/MovieCardComponent';
+import NomineeCardComponent from '../NomineeCardComponent/NomineeCardComponent';
 
 const NomineesComponent = () => {
   return (
     <div className='nominees'>
-      <MovieCardComponent />
-      <MovieCardComponent />
-      <MovieCardComponent />
+      <NomineeCardComponent />
     </div>
   );
 };
