@@ -1,35 +1,37 @@
-import React, { useState } from 'react';
+import React from 'react';
+import { Link } from 'react-router-dom';
 
 import './HeaderComponent.scss';
 
 import AppLogo from './../../assets/shopify.svg';
-import NomineesComponent from '../NomineesComponent/NomineesComponent';
 
 const HeaderComponent = () => {
-  const [displayNominees, setDisplayNominees] = useState(false);
-
   return (
     <div className='header'>
       <div className='header__logo'>
-        <img src={AppLogo} alt='logo' />
+        <Link to='/'>
+          <img src={AppLogo} alt='logo' />
+        </Link>
       </div>
 
       <div className='header__nav'>
         <ul>
-          <li>
-            Hello <br /> <span>Lawrence</span>
-          </li>
-          <li onClick={() => setDisplayNominees(!displayNominees)}>
-            Your <br /> <span>Nominees</span>
-            <span className='nomineeCount'>
-              <p>0</p>
-            </span>
-          </li>
+          <Link to='/me'>
+            <li>
+              Hello <br /> <span>Lawrence</span>
+            </li>
+          </Link>
+          <Link to='/nominees'>
+            <li>
+              Your <br /> <span>Nominees</span>
+              <span className='nomineeCount'>
+                <p>0</p>
+              </span>
+            </li>
+          </Link>
           <button className='logout--btn'>Logout</button>
         </ul>
       </div>
-
-      {displayNominees && <NomineesComponent />}
     </div>
   );
 };

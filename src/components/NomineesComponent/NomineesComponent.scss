@@ -1,24 +1,23 @@
 .nominees {
-  position: fixed;
-  top: 10rem;
-  right: 22rem;
-  background-color: white;
-  box-shadow: 2px 2px 10px 4px rgba(0, 0, 0, 0.2);
-  max-height: 80%;
-  border-radius: 10px;
-  -webkit-border-radius: 10px;
-  -moz-border-radius: 10px;
-  -ms-border-radius: 10px;
-  -o-border-radius: 10px;
-  padding: 2rem;
-  overflow-y: scroll;
+  margin-top: 20rem;
+  display: flex;
+  justify-content: center;
 
-  &::-webkit-scrollbar {
-    width: 0.5rem;
-  }
+  &__container {
+    .nominees__header {
+      font-size: 4rem;
+      font-weight: 300;
+    }
 
-  &::-webkit-scrollbar-thumb {
-    background-color: var(--primary-color);
-    outline: 1px solid var(--light-text);
+    .nomineesCard__container {
+      background-color: white;
+      margin: 5rem 0;
+      padding: 3rem;
+      border-radius: 10px;
+      -webkit-border-radius: 10px;
+      -moz-border-radius: 10px;
+      -ms-border-radius: 10px;
+      -o-border-radius: 10px;
+    }
   }
 }

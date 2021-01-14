@@ -1,9 +1,9 @@
 .nomineeCard {
   display: flex;
-  padding-bottom: 1rem;
+  padding-bottom: 3rem;
 
   &:not(:last-child) {
-    margin-bottom: 2rem;
+    margin-bottom: 4rem;
     border-bottom: 1px solid rgb(210, 210, 210);
   }
 
@@ -11,22 +11,22 @@
     margin-right: 2rem;
 
     img {
-      width: 150px;
-      height: 150px;
+      width: 300px;
+      height: 300px;
       object-fit: cover;
     }
   }
 
   &__content {
-    width: 150px;
-    height: 150px;
+    width: 300px;
+    height: 300px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: flex-start;
 
     p {
-      font-size: 1.8rem;
+      font-size: 2rem;
       color: var(--primary-color);
     }
 
@@ -35,8 +35,8 @@
       color: var(--light-text);
       border: 0;
       outline: 0;
-      padding: 0.8rem 2rem;
-      font-size: 1.4rem;
+      padding: 1.5rem 3rem;
+      font-size: 1.6rem;
       border-radius: 10px;
       -webkit-border-radius: 10px;
       -moz-border-radius: 10px;

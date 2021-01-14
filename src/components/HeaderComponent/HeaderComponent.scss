@@ -14,39 +14,43 @@
       display: flex;
       align-items: center;
 
-      li {
-        list-style: none;
-        font-size: 1.3rem;
-        font-weight: 400;
-        position: relative;
-        cursor: pointer;
+      a {
+        color: var(--primary-color);
+        text-decoration: none;
 
-        span {
-          font-size: 1.8rem;
-        }
+        li {
+          list-style: none;
+          font-size: 1.3rem;
+          font-weight: 400;
+          position: relative;
+          cursor: pointer;
 
-        .nomineeCount {
-          background-color: var(--primary-color);
-          position: absolute;
-          top: 0;
-          right: 0;
-          width: 20px;
-          height: 20px;
-          border-radius: 999px;
-          -webkit-border-radius: 999px;
-          -moz-border-radius: 999px;
-          -ms-border-radius: 999px;
-          -o-border-radius: 999px;
-          display: flex;
-          align-items: center;
-          justify-content: center;
+          span {
+            font-size: 1.8rem;
+          }
 
-          p {
-            font-size: 1.3rem;
-            color: var(--light-text);
+          .nomineeCount {
+            background-color: var(--primary-color);
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 20px;
+            height: 20px;
+            border-radius: 999px;
+            -webkit-border-radius: 999px;
+            -moz-border-radius: 999px;
+            -ms-border-radius: 999px;
+            -o-border-radius: 999px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            p {
+              font-size: 1.3rem;
+              color: var(--light-text);
+            }
           }
         }
-
         &:not(:last-child) {
           margin-right: 4rem;
         }
