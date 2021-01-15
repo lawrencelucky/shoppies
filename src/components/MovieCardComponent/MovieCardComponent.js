@@ -1,4 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import Aos from 'aos';
+import 'aos/dist/aos.css';
 
 import './MovieCardComponent.scss';
 
@@ -6,8 +8,12 @@ const MovieCardComponent = ({ image, title, year }) => {
   const [imageLoaded, setImageLoaded] = useState(false);
   const [isVaildSrc, setIsValidSrc] = useState(!!title);
 
+  useEffect(() => {
+    Aos.init({ duration: 500 });
+  }, []);
+
   return (
-    <div className='movieCard'>
+    <div className='movieCard' data-aos='fade-up'>
       <div className='movieCard__image'>
         {isVaildSrc ? (
           <>

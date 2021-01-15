@@ -1,4 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import Aos from 'aos';
+import 'aos/dist/aos.css';
 
 import { auth } from './../../firebase';
 
@@ -14,6 +16,10 @@ const LoginComponent = ({ setUser }) => {
   const [confirmPassword, setConfirmPassword] = useState('');
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    Aos.init({ duration: 500 });
+  }, []);
 
   const signinHandler = event => {
     event.preventDefault();
@@ -86,7 +92,7 @@ const LoginComponent = ({ setUser }) => {
       ) : (
         <>
           {displayLogin && (
-            <div className='login__container'>
+            <div data-aos='fade-up' className='login__container'>
               <form onSubmit={signinHandler}>
                 <input
                   value={email}
@@ -108,7 +114,7 @@ const LoginComponent = ({ setUser }) => {
           )}
 
           {!displayLogin && (
-            <div className='signup__container'>
+            <div data-aos='fade-up' className='signup__container'>
               <form onSubmit={signupHandler}>
                 <input
                   value={email}

@@ -1,4 +1,6 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import Aos from 'aos';
+import 'aos/dist/aos.css';
 
 import './ResultComponent.scss';
 
@@ -6,9 +8,13 @@ import MovieCardComponent from '../MovieCardComponent/MovieCardComponent';
 import LoaderComponent from '../LoaderComponent/LoaderComponent';
 
 const ResultComponent = ({ search, searchResult, loading }) => {
+  useEffect(() => {
+    Aos.init({ duration: 500 });
+  }, []);
+
   return (
     <div className='result'>
-      <div className='result__container'>
+      <div className='result__container' data-aos='fade-up'>
         <div className='result__header'>
           <p>
             Results for <span>{search}</span>

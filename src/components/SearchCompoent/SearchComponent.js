@@ -1,5 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import Aos from 'aos';
+import 'aos/dist/aos.css';
 
 import './SearchComponent.scss';
 
@@ -13,6 +15,10 @@ const SearchComponent = () => {
   const [searchResult, setSearchResult] = useState({});
   const [loading, setLoading] = useState(false);
   const [pageNumber, setPageNumber] = useState(1);
+
+  useEffect(() => {
+    Aos.init({ duration: 500 });
+  }, []);
 
   const fetchSearchResults = event => {
     event.preventDefault();
@@ -76,7 +82,7 @@ const SearchComponent = () => {
 
   return (
     <>
-      <div className='search'>
+      <div data-aos='fade-up' className='search'>
         <div className='search__container'>
           <h2 className='search__header'>
             Search for your favourite movies <br /> and nominate them.
@@ -108,12 +114,16 @@ const SearchComponent = () => {
             search={search}
             searchResult={searchResult}
           />
-          <Pagination
-            pageNumber={pageNumber}
-            searchResult={searchResult}
-            fetchNextPage={fetchNextPage}
-            fetchPreviousPage={fetchPreviousPage}
-          />
+          {searchResult.Error ? (
+            ''
+          ) : (
+            <Pagination
+              pageNumber={pageNumber}
+              searchResult={searchResult}
+              fetchNextPage={fetchNextPage}
+              fetchPreviousPage={fetchPreviousPage}
+            />
+          )}
         </>
       )}
     </>
