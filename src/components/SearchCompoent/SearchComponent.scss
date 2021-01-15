@@ -3,10 +3,22 @@
   display: flex;
   justify-content: center;
 
+  @media screen and (max-width: 833px) {
+    margin-top: 15rem;
+  }
+
   .search__container {
     h2 {
       font-size: 3.5rem;
       font-weight: 300;
+
+      @media screen and (max-width: 833px) {
+        font-size: 2.5rem;
+      }
+
+      @media screen and (max-width: 410px) {
+        font-size: 2rem;
+      }
     }
 
     .search__inputContainer {

@@ -3,13 +3,24 @@
   justify-content: space-between;
   padding-bottom: 3rem;
 
+  @media screen and (max-width: 430px) {
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 2rem;
+  }
+
   &:not(:last-child) {
     margin-bottom: 5rem;
     border-bottom: 1px solid var(--primary-color);
+
+    @media screen and (max-width: 430px) {
+      margin-bottom: 2rem;
+    }
   }
 
   .movieCard__image {
     position: relative;
+    margin-right: 2rem;
 
     .moviePoster {
       width: 300px;
@@ -20,6 +31,21 @@
       -moz-transition: opacity 0.5s;
       -ms-transition: opacity 0.5s;
       -o-transition: opacity 0.5s;
+
+      @media screen and (max-width: 833px) {
+        width: 200px;
+        height: 200px;
+      }
+
+      @media screen and (max-width: 510px) {
+        width: 150px;
+        height: 150px;
+      }
+
+      @media screen and (max-width: 430px) {
+        width: 200px;
+        height: 200px;
+      }
     }
 
     .moviePoster-visible {
@@ -46,9 +72,28 @@
       -ms-transition: opacity 0.5s;
       -o-transition: opacity 0.5s;
 
+      @media screen and (max-width: 833px) {
+        width: 200px;
+        height: 200px;
+      }
+
+      @media screen and (max-width: 510px) {
+        width: 150px;
+        height: 150px;
+      }
+
+      @media screen and (max-width: 430px) {
+        width: 200px;
+        height: 200px;
+      }
+
       p {
         font-size: 3rem;
         font-weight: 600;
+
+        @media screen and (max-width: 785px) {
+          font-size: 2rem;
+        }
       }
     }
 
@@ -66,6 +111,21 @@
       -ms-transition: opacity 0.5s;
       -o-transition: opacity 0.5s;
 
+      @media screen and (max-width: 833px) {
+        width: 200px;
+        height: 200px;
+      }
+
+      @media screen and (max-width: 510px) {
+        width: 150px;
+        height: 150px;
+      }
+
+      @media screen and (max-width: 430px) {
+        width: 200px;
+        height: 200px;
+      }
+
       p {
         font-size: 3rem;
         font-weight: 600;
@@ -74,6 +134,10 @@
         -moz-transform: rotate(-45deg);
         -ms-transform: rotate(-45deg);
         -o-transform: rotate(-45deg);
+
+        @media screen and (max-width: 785px) {
+          font-size: 2rem;
+        }
       }
     }
   }
@@ -86,17 +150,41 @@
     width: 300px;
     height: 300px;
 
+    @media screen and (max-width: 833px) {
+      width: 200px;
+      height: 200px;
+    }
+
+    @media screen and (max-width: 510px) {
+      width: 150px;
+      height: 150px;
+    }
+
+    @media screen and (max-width: 430px) {
+      width: 200px;
+      height: fit-content;
+      justify-content: flex-start;
+    }
+
     .movie__details {
       .movie__title {
         font-size: 3rem;
         font-weight: 300;
         color: var(--primary-color);
         max-width: 300px;
+
+        @media screen and (max-width: 768px) {
+          font-size: 2rem;
+        }
       }
 
       .movie__year {
         font-size: 1.4rem;
         font-weight: 600;
+      }
+
+      @media screen and (max-width: 430px) {
+        margin-bottom: 2rem;
       }
     }
 
@@ -119,6 +207,11 @@
       -moz-transition: all 0.3s;
       -ms-transition: all 0.3s;
       -o-transition: all 0.3s;
+
+      @media screen and (max-width: 375px) {
+        padding: 1rem 1.5rem;
+        font-size: 1.3rem;
+      }
 
       &:hover {
         opacity: 0.8;

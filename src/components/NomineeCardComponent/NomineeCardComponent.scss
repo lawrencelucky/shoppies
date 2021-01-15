@@ -2,18 +2,138 @@
   display: flex;
   padding-bottom: 3rem;
 
+  @media screen and (max-width: 430px) {
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 2rem;
+  }
+
   &:not(:last-child) {
     margin-bottom: 4rem;
-    border-bottom: 1px solid rgb(210, 210, 210);
+    border-bottom: 1px solid var(--primary-color);
   }
 
   &__image {
     margin-right: 2rem;
+    position: relative;
 
-    img {
+    .moviePoster {
       width: 300px;
       height: 300px;
       object-fit: cover;
+      transition: opacity 0.5s;
+      -webkit-transition: opacity 0.5s;
+      -moz-transition: opacity 0.5s;
+      -ms-transition: opacity 0.5s;
+      -o-transition: opacity 0.5s;
+
+      @media screen and (max-width: 833px) {
+        width: 200px;
+        height: 200px;
+      }
+
+      @media screen and (max-width: 510px) {
+        width: 150px;
+        height: 150px;
+      }
+
+      @media screen and (max-width: 430px) {
+        width: 200px;
+        height: 200px;
+      }
+    }
+
+    .moviePoster-visible {
+      opacity: 1;
+    }
+
+    .moviePoster-hidden {
+      opacity: 0;
+    }
+
+    .loader {
+      position: absolute;
+      top: 0;
+      background-color: var(--primary-color);
+      color: var(--light-text);
+      width: 300px;
+      height: 300px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      transition: opacity 0.5s;
+      -webkit-transition: opacity 0.5s;
+      -moz-transition: opacity 0.5s;
+      -ms-transition: opacity 0.5s;
+      -o-transition: opacity 0.5s;
+
+      @media screen and (max-width: 833px) {
+        width: 200px;
+        height: 200px;
+      }
+
+      @media screen and (max-width: 510px) {
+        width: 150px;
+        height: 150px;
+      }
+
+      @media screen and (max-width: 430px) {
+        width: 200px;
+        height: 200px;
+      }
+
+      p {
+        font-size: 3rem;
+        font-weight: 600;
+
+        @media screen and (max-width: 785px) {
+          font-size: 2rem;
+        }
+      }
+    }
+
+    .noMoviePoster {
+      background-color: var(--primary-color);
+      color: var(--light-text);
+      width: 300px;
+      height: 300px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      transition: opacity 0.5s;
+      -webkit-transition: opacity 0.5s;
+      -moz-transition: opacity 0.5s;
+      -ms-transition: opacity 0.5s;
+      -o-transition: opacity 0.5s;
+
+      @media screen and (max-width: 833px) {
+        width: 200px;
+        height: 200px;
+      }
+
+      @media screen and (max-width: 510px) {
+        width: 150px;
+        height: 150px;
+      }
+
+      @media screen and (max-width: 430px) {
+        width: 200px;
+        height: 200px;
+      }
+
+      p {
+        font-size: 3rem;
+        font-weight: 600;
+        transform: rotate(-45deg);
+        -webkit-transform: rotate(-45deg);
+        -moz-transform: rotate(-45deg);
+        -ms-transform: rotate(-45deg);
+        -o-transform: rotate(-45deg);
+
+        @media screen and (max-width: 785px) {
+          font-size: 2rem;
+        }
+      }
     }
   }
 
@@ -25,9 +145,29 @@
     justify-content: space-between;
     align-items: flex-start;
 
+    @media screen and (max-width: 833px) {
+      width: 200px;
+      height: 200px;
+    }
+
+    @media screen and (max-width: 510px) {
+      width: 150px;
+      height: 150px;
+    }
+
+    @media screen and (max-width: 430px) {
+      width: 200px;
+      height: fit-content;
+      justify-content: flex-start;
+    }
+
     p {
       font-size: 2rem;
       color: var(--primary-color);
+
+      @media screen and (max-width: 430px) {
+        margin-bottom: 2rem;
+      }
     }
 
     .remove--btn {
@@ -35,7 +175,7 @@
       color: var(--light-text);
       border: 0;
       outline: 0;
-      padding: 1.5rem 3rem;
+      padding: 1rem 3rem;
       font-size: 1.6rem;
       border-radius: 10px;
       -webkit-border-radius: 10px;
@@ -48,6 +188,11 @@
       -moz-transition: all 0.5s;
       -ms-transition: all 0.5s;
       -o-transition: all 0.5s;
+
+      @media screen and (max-width: 375px) {
+        padding: 1rem 1.5rem;
+        font-size: 1.3rem;
+      }
 
       &:hover {
         opacity: 0.8;

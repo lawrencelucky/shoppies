@@ -3,10 +3,22 @@
   display: flex;
   justify-content: center;
 
+  @media screen and (max-width: 833px) {
+    margin-top: 15rem;
+  }
+
   &__container {
     .nominees__header {
-      font-size: 4rem;
+      font-size: 3.5rem;
       font-weight: 300;
+
+      @media screen and (max-width: 833px) {
+        font-size: 2.5rem;
+      }
+
+      @media screen and (max-width: 410px) {
+        font-size: 2rem;
+      }
     }
 
     .nomineesCard__container {
@@ -19,10 +31,23 @@
       -ms-border-radius: 10px;
       -o-border-radius: 10px;
 
+      @media screen and (max-width: 430px) {
+        padding: 2rem;
+      }
+
       .nomineesLoader {
         display: flex;
         flex-direction: column;
         align-items: center;
+
+        h1 {
+          font-size: 3rem;
+          font-weight: 300;
+
+          @media screen and (max-width: 375px) {
+            font-size: 2rem;
+          }
+        }
       }
 
       .no-nominated {

@@ -7,7 +7,7 @@ import { auth } from './../../firebase';
 
 import AppLogo from './../../assets/shopify.svg';
 
-const HeaderComponent = ({ user, setUser, nominatedMovies, loading }) => {
+const HeaderComponent = ({ setUser, nominatedMovies, loading }) => {
   const logoutHandler = () => {
     auth.signOut();
     setUser('');
@@ -23,11 +23,6 @@ const HeaderComponent = ({ user, setUser, nominatedMovies, loading }) => {
 
       <div className='header__nav'>
         <ul>
-          <Link to='/'>
-            <li>
-              Hello <br /> <span>{user?.email}</span>
-            </li>
-          </Link>
           <Link to='/nominees'>
             <li>
               Your <br /> <span>Nominees</span>
