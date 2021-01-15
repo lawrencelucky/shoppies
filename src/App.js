@@ -34,7 +34,9 @@ function App() {
         .collection('nominees')
         .orderBy('timestamp', 'asc')
         .onSnapshot(snapshot => {
-          setNominatedMovies(snapshot.docs.map(doc => doc.data()));
+          setNominatedMovies(
+            snapshot.docs.map(doc => ({ ...doc.data(), id: doc.id }))
+          );
           setLoading(false);
         });
     }
@@ -67,7 +69,9 @@ function App() {
           <Switch>
             <Route path='/nominees'>
               <NomineesComponent
+                user={user}
                 nominatedMovies={nominatedMovies}
+                setNominatedMovies={setNominatedMovies}
                 loading={loading}
               />
             </Route>

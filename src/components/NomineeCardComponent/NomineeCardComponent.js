@@ -4,7 +4,7 @@ import 'aos/dist/aos.css';
 
 import './NomineeCardComponent.scss';
 
-const NomineeCardComponent = ({ image, title }) => {
+const NomineeCardComponent = ({ image, title, removeNomineeHandler }) => {
   useEffect(() => {
     Aos.init({ duration: 500 });
   }, []);
@@ -16,7 +16,9 @@ const NomineeCardComponent = ({ image, title }) => {
       </div>
       <div className='nomineeCard__content'>
         <p>{title}</p>
-        <button className='remove--btn'>Remove</button>
+        <button onClick={removeNomineeHandler} className='remove--btn'>
+          Remove
+        </button>
       </div>
     </div>
   );
