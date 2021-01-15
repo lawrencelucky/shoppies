@@ -33,12 +33,17 @@
   @media screen and (max-width: 375px) {
     bottom: 3rem;
     right: 2rem;
+    padding: 1rem;
   }
 
   p {
     font-size: 2rem;
     width: 30rem;
     text-align: center;
+
+    @media screen and (max-width: 425px) {
+      font-size: 1.6rem;
+    }
   }
 }
 
