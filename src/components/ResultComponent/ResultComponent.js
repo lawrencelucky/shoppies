@@ -28,7 +28,8 @@ const ResultComponent = ({ search, searchResult, loading }) => {
           {!searchResult.Error ? (
             <>
               {loading ? (
-                <div className='loader__container'>
+                <div className='resultLoader'>
+                  <h1>Please wait</h1>
                   <LoaderComponent />
                 </div>
               ) : (

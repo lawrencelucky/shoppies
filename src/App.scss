@@ -1,0 +1,12 @@
+.appLoader {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+
+  h1 {
+    font-size: 3rem;
+    font-weight: 300;
+  }
+}

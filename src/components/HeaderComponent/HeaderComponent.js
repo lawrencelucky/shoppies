@@ -3,9 +3,16 @@ import { Link } from 'react-router-dom';
 
 import './HeaderComponent.scss';
 
+import { auth } from './../../firebase';
+
 import AppLogo from './../../assets/shopify.svg';
 
-const HeaderComponent = () => {
+const HeaderComponent = ({ user, setUser }) => {
+  const logoutHandler = () => {
+    auth.signOut();
+    setUser('');
+  };
+
   return (
     <div className='header'>
       <div className='header__logo'>
@@ -16,9 +23,9 @@ const HeaderComponent = () => {
 
       <div className='header__nav'>
         <ul>
-          <Link to='/me'>
+          <Link to='/'>
             <li>
-              Hello <br /> <span>Lawrence</span>
+              Hello <br /> <span>{user?.email}</span>
             </li>
           </Link>
           <Link to='/nominees'>
@@ -29,7 +36,9 @@ const HeaderComponent = () => {
               </span>
             </li>
           </Link>
-          <button className='logout--btn'>Logout</button>
+          <button onClick={logoutHandler} className='logout--btn'>
+            Logout
+          </button>
         </ul>
       </div>
     </div>

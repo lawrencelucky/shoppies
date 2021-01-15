@@ -2,6 +2,9 @@ import React from 'react';
 
 import './Pagination.scss';
 
+import LeftArrow from './../../assets/left-arrow.svg';
+import RightArrow from './../../assets/right-arrow.svg';
+
 const Pagination = ({
   pageNumber,
   fetchPreviousPage,
@@ -12,18 +15,26 @@ const Pagination = ({
     <div className='pagination'>
       <div className='pagination__container'>
         {pageNumber > 1 ? (
-          <button className='previous--btn' onClick={fetchPreviousPage}>
-            Previous
-          </button>
+          <img
+            className='pagination--leftArrow'
+            onClick={fetchPreviousPage}
+            src={LeftArrow}
+            alt=''
+          />
         ) : (
           ''
         )}
-        <p className='pageNumber'>{pageNumber}</p>
+        <p className='pageNumber'>
+          {pageNumber} of {Math.ceil(searchResult.totalResults / 10)}
+        </p>
         {Math.ceil(searchResult.totalResults / 10) > 1 &&
         pageNumber * 10 <= searchResult.totalResults ? (
-          <button className='next--btn' onClick={fetchNextPage}>
-            Next
-          </button>
+          <img
+            className='pagination--rightArrow'
+            onClick={fetchNextPage}
+            src={RightArrow}
+            alt=''
+          />
         ) : (
           ''
         )}

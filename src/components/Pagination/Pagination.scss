@@ -5,66 +5,46 @@
 
   &__container {
     position: relative;
+    display: flex;
+    align-items: center;
     width: 30%;
+    border: 1px solid #fff;
+    border-radius: 10px;
+    padding: 3rem 5rem;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+    box-shadow: 0px 0px 2px 5px rgba($color: #000000, $alpha: 0.3);
 
-    .previous--btn {
+    .pagination--leftArrow {
       position: absolute;
-      left: 0;
-      background-color: var(--primary-color);
-      color: var(--light-text);
-      font-family: 'Nunito Sans', sans-serif;
-      font-size: 1.6rem;
-      padding: 1rem 3rem;
-      border: 0;
-      border-radius: 10px;
-      -webkit-border-radius: 10px;
-      -moz-border-radius: 10px;
-      -ms-border-radius: 10px;
-      -o-border-radius: 10px;
-      outline: 0;
+      left: 2rem;
       cursor: pointer;
-
-      &:hover {
-        opacity: 0.8;
-      }
-
-      &:active {
-        opacity: 1;
-      }
+      width: 4rem;
     }
 
     .pageNumber {
       position: absolute;
+      top: 50%;
+      left: 50%;
       right: 50%;
-      font-size: 3rem;
+      transform: translate(-50%, -50%);
+      width: fit-content;
+      font-size: 2rem;
+      font-weight: 300;
       color: var(--primary-color);
-      font-weight: 600;
+      -webkit-transform: translate(-50%, -50%);
+      -moz-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+      -o-transform: translate(-50%, -50%);
     }
 
-    .next--btn {
+    .pagination--rightArrow {
       position: absolute;
-      right: 0;
-      background-color: var(--primary-color);
-      color: var(--light-text);
-      font-family: 'Nunito Sans', sans-serif;
-      font-size: 1.6rem;
-      padding: 1rem 3rem;
-      border: 0;
-      border-radius: 10px;
-      -webkit-border-radius: 10px;
-      -moz-border-radius: 10px;
-      -ms-border-radius: 10px;
-      -o-border-radius: 10px;
-      outline: 0;
+      right: 2rem;
       cursor: pointer;
-
-      &:hover {
-        opacity: 0.8;
-      }
-
-      &:active {
-        opacity: 1;
-      }
+      width: 4rem;
     }
   }
 }
