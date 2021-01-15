@@ -10,16 +10,18 @@ import NomineesComponent from './components/NomineesComponent/NomineesComponent'
 import SearchComponent from './components/SearchCompoent/SearchComponent';
 import LoginComponent from './components/LoginComponent/LoginComponent';
 import LoaderComponent from './components/LoaderComponent/LoaderComponent';
+import NotificationComponent from './components/NotificationComponent/NotificationComponent';
 
 function App() {
   const [user, setUser] = useState(null);
-  const [nominatedMovies, setNominatedMovies] = useState();
+  const [nominatedMovies, setNominatedMovies] = useState([]);
   const [loading, setLoading] = useState(false);
+  const [notification, setNotification] = useState('');
 
   useEffect(() => {
     setLoading(true);
-    auth.onAuthStateChanged(auth => {
-      setUser(auth);
+    auth.onAuthStateChanged(authUser => {
+      setUser(authUser);
       setLoading(false);
     });
   }, []);
@@ -48,7 +50,10 @@ function App() {
               <LoaderComponent />
             </div>
           ) : (
-            <LoginComponent />
+            <>
+              <LoginComponent setNotification={setNotification} />
+              {notification && <NotificationComponent message={notification} />}
+            </>
           )}
         </>
       ) : (
@@ -61,10 +66,18 @@ function App() {
           />
           <Switch>
             <Route path='/nominees'>
-              <NomineesComponent nominatedMovies={nominatedMovies} />
+              <NomineesComponent
+                nominatedMovies={nominatedMovies}
+                loading={loading}
+              />
             </Route>
             <Route path='/'>
-              <SearchComponent user={user} nominatedMovies={nominatedMovies} />
+              <SearchComponent
+                user={user}
+                nominatedMovies={nominatedMovies}
+                setNotification={setNotification}
+              />
+              {notification && <NotificationComponent message={notification} />}
             </Route>
           </Switch>
         </Router>

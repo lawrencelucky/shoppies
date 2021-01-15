@@ -5,8 +5,9 @@ import 'aos/dist/aos.css';
 import './NomineesComponent.scss';
 
 import NomineeCardComponent from '../NomineeCardComponent/NomineeCardComponent';
+import LoaderComponent from './../LoaderComponent/LoaderComponent';
 
-const NomineesComponent = ({ nominatedMovies }) => {
+const NomineesComponent = ({ nominatedMovies, loading }) => {
   useEffect(() => {
     Aos.init({ duration: 500 });
   });
@@ -17,13 +18,20 @@ const NomineesComponent = ({ nominatedMovies }) => {
         <h2 className='nominees__header'>Your nominated movies.</h2>
 
         <div className='nomineesCard__container'>
-          {nominatedMovies?.map((movies, index) => (
-            <NomineeCardComponent
-              key={index}
-              title={movies.title}
-              image={movies.image}
-            />
-          ))}
+          {loading ? (
+            <div className='nomineesLoader'>
+              <h1>Please wait</h1>
+              <LoaderComponent />
+            </div>
+          ) : (
+            nominatedMovies?.map((movies, index) => (
+              <NomineeCardComponent
+                key={index}
+                title={movies.title}
+                image={movies.image}
+              />
+            ))
+          )}
         </div>
       </div>
     </div>

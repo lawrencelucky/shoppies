@@ -10,6 +10,7 @@ const Pagination = ({
   fetchPreviousPage,
   searchResult,
   fetchNextPage,
+  loading,
 }) => {
   return (
     <div className='pagination'>
@@ -25,7 +26,8 @@ const Pagination = ({
           ''
         )}
         <p className='pageNumber'>
-          {pageNumber} of {Math.ceil(searchResult.totalResults / 10)}
+          {pageNumber} of{' '}
+          {loading ? `0` : Math.ceil(searchResult.totalResults / 10)}
         </p>
         {Math.ceil(searchResult.totalResults / 10) > 1 &&
         pageNumber * 10 <= searchResult.totalResults ? (

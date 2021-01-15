@@ -13,6 +13,7 @@ const ResultComponent = ({
   loading,
   user,
   nominatedMovies,
+  setNotification,
 }) => {
   useEffect(() => {
     Aos.init({ duration: 500 });
@@ -55,6 +56,7 @@ const ResultComponent = ({
                       imdbID={result.imdbID}
                       user={user}
                       nominatedMovies={nominatedMovies}
+                      setNotification={setNotification}
                     />
                   ))}
                 </>

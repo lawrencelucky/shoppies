@@ -6,15 +6,13 @@ import { auth } from './../../firebase';
 
 import './LoginComponent.scss';
 
-import NotificationComponent from '../NotificationComponent/NotificationComponent';
 import LoaderComponent from '../LoaderComponent/LoaderComponent';
 
-const LoginComponent = ({ setUser }) => {
+const LoginComponent = ({ setUser, setNotification }) => {
   const [displayLogin, setDisplayLogin] = useState(true);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
-  const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
@@ -27,17 +25,19 @@ const LoginComponent = ({ setUser }) => {
     setLoading(true);
     auth
       .signInWithEmailAndPassword(email, password)
-      .then(auth => {
-        setUser(auth);
+      .then(authUser => {
+        setUser(authUser);
         setLoading(false);
       })
       .catch(error => {
-        setError(error.message);
-        setLoading(false);
+        if (error.message !== 'setUser is not a function') {
+          setNotification(error.message);
+          setLoading(false);
+        }
 
         setTimeout(() => {
-          setError('');
-        }, 5000);
+          setNotification('');
+        }, 10000);
       });
 
     setEmail('');
@@ -51,25 +51,27 @@ const LoginComponent = ({ setUser }) => {
     if (password === confirmPassword) {
       auth
         .createUserWithEmailAndPassword(email, password)
-        .then(auth => {
-          setUser(auth);
+        .then(authUser => {
+          setUser(authUser);
           setLoading(false);
         })
         .catch(error => {
-          setError(error.message);
-          setLoading(false);
+          if (error.message !== 'setUser is not a function') {
+            setNotification(error.message);
+            setLoading(false);
+          }
 
           setTimeout(() => {
-            setError('');
-          }, 5000);
+            setNotification('');
+          }, 10000);
         });
     } else {
-      setError('Passwords does not match. Try again.');
+      setNotification('Passwords does not match. Try again.');
       setLoading(false);
 
       setTimeout(() => {
-        setError('');
-      }, 5000);
+        setNotification('');
+      }, 10000);
     }
 
     setEmail('');
@@ -142,8 +144,6 @@ const LoginComponent = ({ setUser }) => {
           )}
         </>
       )}
-
-      {error && <NotificationComponent message={error} />}
     </div>
   );
 };
