@@ -64,7 +64,7 @@ function App() {
               <NomineesComponent nominatedMovies={nominatedMovies} />
             </Route>
             <Route path='/'>
-              <SearchComponent user={user} />
+              <SearchComponent user={user} nominatedMovies={nominatedMovies} />
             </Route>
           </Switch>
         </Router>

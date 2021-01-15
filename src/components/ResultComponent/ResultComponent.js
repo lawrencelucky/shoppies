@@ -7,7 +7,13 @@ import './ResultComponent.scss';
 import MovieCardComponent from '../MovieCardComponent/MovieCardComponent';
 import LoaderComponent from '../LoaderComponent/LoaderComponent';
 
-const ResultComponent = ({ search, searchResult, loading, user }) => {
+const ResultComponent = ({
+  search,
+  searchResult,
+  loading,
+  user,
+  nominatedMovies,
+}) => {
   useEffect(() => {
     Aos.init({ duration: 500 });
   }, []);
@@ -48,6 +54,7 @@ const ResultComponent = ({ search, searchResult, loading, user }) => {
                       year={result.Year}
                       imdbID={result.imdbID}
                       user={user}
+                      nominatedMovies={nominatedMovies}
                     />
                   ))}
                 </>

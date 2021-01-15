@@ -7,13 +7,34 @@ import './MovieCardComponent.scss';
 
 import { db } from './../../firebase';
 
-const MovieCardComponent = ({ image, title, year, user, imdbID }) => {
+const MovieCardComponent = ({
+  image,
+  title,
+  year,
+  user,
+  imdbID,
+  nominatedMovies,
+}) => {
   const [imageLoaded, setImageLoaded] = useState(false);
   const [isVaildSrc, setIsValidSrc] = useState(!!title);
+  const [disableBtn, setDisableBtn] = useState(false);
 
   useEffect(() => {
     Aos.init({ duration: 500 });
   });
+
+  useEffect(() => {
+    for (let i = 0; i <= nominatedMovies?.length; i++) {
+      // console.log(searchResult.Search[i]);
+      if (
+        title === nominatedMovies[i]?.title &&
+        image === nominatedMovies[i]?.image &&
+        imdbID === nominatedMovies[i]?.imdbID
+      ) {
+        setDisableBtn(true);
+      }
+    }
+  }, [image, imdbID, nominatedMovies, title]);
 
   const nominateHandler = () => {
     db.collection('users').doc(user.uid).collection('nominees').add({
@@ -55,7 +76,11 @@ const MovieCardComponent = ({ image, title, year, user, imdbID }) => {
           <h2 className='movie__title'>{title}</h2>
           <p className='movie__year'>{year}</p>
         </div>
-        <button className='nominate--btn' onClick={nominateHandler}>
+        <button
+          disabled={disableBtn}
+          className='nominate--btn'
+          onClick={nominateHandler}
+        >
           Nominate
         </button>
       </div>

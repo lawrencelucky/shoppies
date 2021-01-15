@@ -9,7 +9,7 @@ import SearchIcon from './../../assets/search.svg';
 import ResultComponent from '../ResultComponent/ResultComponent';
 import Pagination from '../Pagination/Pagination';
 
-const SearchComponent = ({ user }) => {
+const SearchComponent = ({ user, nominatedMovies }) => {
   const [search, setSearch] = useState('');
   const [displayResults, setDisplayResults] = useState(false);
   const [searchResult, setSearchResult] = useState({});
@@ -114,6 +114,7 @@ const SearchComponent = ({ user }) => {
             search={search}
             searchResult={searchResult}
             user={user}
+            nominatedMovies={nominatedMovies}
           />
           {searchResult.Error ? (
             ''
