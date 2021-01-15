@@ -7,7 +7,7 @@ import { auth } from './../../firebase';
 
 import AppLogo from './../../assets/shopify.svg';
 
-const HeaderComponent = ({ user, setUser }) => {
+const HeaderComponent = ({ user, setUser, nominatedMovies, loading }) => {
   const logoutHandler = () => {
     auth.signOut();
     setUser('');
@@ -32,7 +32,7 @@ const HeaderComponent = ({ user, setUser }) => {
             <li>
               Your <br /> <span>Nominees</span>
               <span className='nomineeCount'>
-                <p>0</p>
+                <p>{loading ? `0` : nominatedMovies?.length}</p>
               </span>
             </li>
           </Link>

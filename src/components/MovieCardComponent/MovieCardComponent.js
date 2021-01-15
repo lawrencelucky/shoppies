@@ -1,16 +1,28 @@
 import React, { useState, useEffect } from 'react';
 import Aos from 'aos';
 import 'aos/dist/aos.css';
+import firebase from 'firebase';
 
 import './MovieCardComponent.scss';
 
-const MovieCardComponent = ({ image, title, year }) => {
+import { db } from './../../firebase';
+
+const MovieCardComponent = ({ image, title, year, user, imdbID }) => {
   const [imageLoaded, setImageLoaded] = useState(false);
   const [isVaildSrc, setIsValidSrc] = useState(!!title);
 
   useEffect(() => {
     Aos.init({ duration: 500 });
-  }, []);
+  });
+
+  const nominateHandler = () => {
+    db.collection('users').doc(user.uid).collection('nominees').add({
+      image,
+      title,
+      imdbID,
+      timestamp: firebase.firestore.FieldValue.serverTimestamp(),
+    });
+  };
 
   return (
     <div className='movieCard' data-aos='fade-up'>
@@ -43,7 +55,9 @@ const MovieCardComponent = ({ image, title, year }) => {
           <h2 className='movie__title'>{title}</h2>
           <p className='movie__year'>{year}</p>
         </div>
-        <button className='nominate--btn'>Nominate</button>
+        <button className='nominate--btn' onClick={nominateHandler}>
+          Nominate
+        </button>
       </div>
     </div>
   );

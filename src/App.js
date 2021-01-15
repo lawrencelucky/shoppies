@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
 import './App.scss';
 
-import { auth } from './firebase';
+import { auth, db } from './firebase';
 
 import HeaderComponent from './components/HeaderComponent/HeaderComponent';
 import NomineesComponent from './components/NomineesComponent/NomineesComponent';
@@ -13,6 +13,7 @@ import LoaderComponent from './components/LoaderComponent/LoaderComponent';
 
 function App() {
   const [user, setUser] = useState(null);
+  const [nominatedMovies, setNominatedMovies] = useState();
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
@@ -22,6 +23,20 @@ function App() {
       setLoading(false);
     });
   }, []);
+
+  useEffect(() => {
+    if (user) {
+      setLoading(true);
+      db.collection('users')
+        .doc(user.uid)
+        .collection('nominees')
+        .orderBy('timestamp', 'asc')
+        .onSnapshot(snapshot => {
+          setNominatedMovies(snapshot.docs.map(doc => doc.data()));
+          setLoading(false);
+        });
+    }
+  }, [user]);
 
   return (
     <div className='app'>
@@ -38,13 +53,18 @@ function App() {
         </>
       ) : (
         <Router>
-          <HeaderComponent setUser={setUser} user={user} />
+          <HeaderComponent
+            setUser={setUser}
+            user={user}
+            nominatedMovies={nominatedMovies}
+            loading={loading}
+          />
           <Switch>
             <Route path='/nominees'>
-              <NomineesComponent />
+              <NomineesComponent nominatedMovies={nominatedMovies} />
             </Route>
             <Route path='/'>
-              <SearchComponent />
+              <SearchComponent user={user} />
             </Route>
           </Switch>
         </Router>

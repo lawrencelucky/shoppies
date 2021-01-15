@@ -7,7 +7,7 @@ import './ResultComponent.scss';
 import MovieCardComponent from '../MovieCardComponent/MovieCardComponent';
 import LoaderComponent from '../LoaderComponent/LoaderComponent';
 
-const ResultComponent = ({ search, searchResult, loading }) => {
+const ResultComponent = ({ search, searchResult, loading, user }) => {
   useEffect(() => {
     Aos.init({ duration: 500 });
   }, []);
@@ -46,6 +46,8 @@ const ResultComponent = ({ search, searchResult, loading }) => {
                       image={result.Poster}
                       title={result.Title}
                       year={result.Year}
+                      imdbID={result.imdbID}
+                      user={user}
                     />
                   ))}
                 </>
