@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useHistory } from 'react-router-dom';
 import Aos from 'aos';
 import 'aos/dist/aos.css';
 
@@ -9,6 +10,7 @@ import './LoginComponent.scss';
 import LoaderComponent from '../LoaderComponent/LoaderComponent';
 
 const LoginComponent = ({ setUser, setNotification }) => {
+  const history = useHistory();
   const [displayLogin, setDisplayLogin] = useState(true);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -26,6 +28,7 @@ const LoginComponent = ({ setUser, setNotification }) => {
     auth
       .signInWithEmailAndPassword(email, password)
       .then(authUser => {
+        history.push('/');
         setUser(authUser);
         setLoading(false);
       })
@@ -52,6 +55,7 @@ const LoginComponent = ({ setUser, setNotification }) => {
       auth
         .createUserWithEmailAndPassword(email, password)
         .then(authUser => {
+          history.push('/');
           setUser(authUser);
           setLoading(false);
         })

@@ -11,6 +11,7 @@ import SearchComponent from './components/SearchCompoent/SearchComponent';
 import LoginComponent from './components/LoginComponent/LoginComponent';
 import LoaderComponent from './components/LoaderComponent/LoaderComponent';
 import NotificationComponent from './components/NotificationComponent/NotificationComponent';
+import ScrollToTop from './components/ScrollToTop/ScrollToTop';
 
 function App() {
   const [user, setUser] = useState(null);
@@ -46,17 +47,21 @@ function App() {
     <div className='app'>
       {!user ? (
         <>
-          {loading ? (
-            <div className='appLoader'>
-              <h1>Please wait</h1>
-              <LoaderComponent />
-            </div>
-          ) : (
-            <>
-              <LoginComponent setNotification={setNotification} />
-              {notification && <NotificationComponent message={notification} />}
-            </>
-          )}
+          <Router>
+            {loading ? (
+              <div className='appLoader'>
+                <h1>Please wait</h1>
+                <LoaderComponent />
+              </div>
+            ) : (
+              <>
+                <LoginComponent setNotification={setNotification} />
+                {notification && (
+                  <NotificationComponent message={notification} />
+                )}
+              </>
+            )}
+          </Router>
         </>
       ) : (
         <Router>
@@ -66,6 +71,7 @@ function App() {
             nominatedMovies={nominatedMovies}
             loading={loading}
           />
+          <ScrollToTop />
           <Switch>
             <Route path='/nominees'>
               <NomineesComponent
