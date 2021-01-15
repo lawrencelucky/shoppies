@@ -27,7 +27,7 @@ const SearchComponent = ({ user, nominatedMovies, setNotification }) => {
       setDisplayResults(true);
       setLoading(true);
       axios
-        .get(`http://www.omdbapi.com/?apikey=3abad939&s=${search}`)
+        .get(`https://www.omdbapi.com/?apikey=3abad939&s=${search}`)
         .then(results => {
           setLoading(false);
           setSearchResult(results.data);
@@ -44,7 +44,7 @@ const SearchComponent = ({ user, nominatedMovies, setNotification }) => {
       setPageNumber(pageNumber + 1);
       axios
         .get(
-          `http://www.omdbapi.com/?apikey=3abad939&s=${search}&page=${
+          `https://www.omdbapi.com/?apikey=3abad939&s=${search}&page=${
             pageNumber + 1
           }`
         )
@@ -65,7 +65,7 @@ const SearchComponent = ({ user, nominatedMovies, setNotification }) => {
 
       axios
         .get(
-          `http://www.omdbapi.com/?apikey=3abad939&s=${search}&page=${
+          `https://www.omdbapi.com/?apikey=3abad939&s=${search}&page=${
             pageNumber - 1
           }`
         )

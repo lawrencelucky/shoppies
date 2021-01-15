@@ -22,6 +22,19 @@
   animation: fadeIn 0.5s ease-in;
   -webkit-animation: fadeIn 0.5s ease-in;
 
+  @media screen and (max-width: 600px) {
+    width: 35rem;
+  }
+
+  @media screen and (max-width: 430px) {
+    width: 25rem;
+  }
+
+  @media screen and (max-width: 375px) {
+    bottom: 3rem;
+    right: 2rem;
+  }
+
   p {
     font-size: 2rem;
     width: 30rem;
