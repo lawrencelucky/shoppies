@@ -33,7 +33,10 @@ const LoginComponent = ({ setUser, setNotification }) => {
         setLoading(false);
       })
       .catch(error => {
-        if (error.message !== 'setUser is not a function') {
+        if (
+          error.message !== 'setUser is not a function' &&
+          error.message !== 't is not a function'
+        ) {
           setNotification(error.message);
           setLoading(false);
         }
@@ -60,7 +63,10 @@ const LoginComponent = ({ setUser, setNotification }) => {
           setLoading(false);
         })
         .catch(error => {
-          if (error.message !== 'setUser is not a function') {
+          if (
+            error.message !== 'setUser is not a function' &&
+            error.message !== 't is not a function'
+          ) {
             setNotification(error.message);
             setLoading(false);
           }

@@ -27,7 +27,9 @@ const SearchComponent = ({ user, nominatedMovies, setNotification }) => {
       setDisplayResults(true);
       setLoading(true);
       axios
-        .get(`https://www.omdbapi.com/?apikey=3abad939&s=${search}`)
+        .get(
+          `https://www.omdbapi.com/?apikey=${process.env.REACT_APP_API_KEY}&s=${search}`
+        )
         .then(results => {
           setLoading(false);
           setSearchResult(results.data);
@@ -44,9 +46,9 @@ const SearchComponent = ({ user, nominatedMovies, setNotification }) => {
       setPageNumber(pageNumber + 1);
       axios
         .get(
-          `https://www.omdbapi.com/?apikey=3abad939&s=${search}&page=${
-            pageNumber + 1
-          }`
+          `https://www.omdbapi.com/?apikey=${
+            process.env.REACT_APP_API_KEY
+          }&s=${search}&page=${pageNumber + 1}`
         )
         .then(results => {
           setLoading(false);
@@ -65,9 +67,9 @@ const SearchComponent = ({ user, nominatedMovies, setNotification }) => {
 
       axios
         .get(
-          `https://www.omdbapi.com/?apikey=3abad939&s=${search}&page=${
-            pageNumber - 1
-          }`
+          `https://www.omdbapi.com/?apikey=${
+            process.env.REACT_APP_API_KEY
+          }&s=${search}&page=${pageNumber - 1}`
         )
         .then(results => {
           setLoading(false);
@@ -80,7 +82,7 @@ const SearchComponent = ({ user, nominatedMovies, setNotification }) => {
 
   return (
     <>
-      <div data-aos='fade-up' className='search'>
+      <div className='search'>
         <div className='search__container'>
           <h2 className='search__header'>
             Search for your favourite movies <br /> and nominate them.
@@ -98,7 +100,11 @@ const SearchComponent = ({ user, nominatedMovies, setNotification }) => {
                 type='text'
                 placeholder='Search for movies here'
               />
-              <img src={SearchIcon} alt='search-icon' />
+              <img
+                onClick={fetchSearchResults}
+                src={SearchIcon}
+                alt='search-icon'
+              />
               <button type='submit'></button>
             </form>
           </div>

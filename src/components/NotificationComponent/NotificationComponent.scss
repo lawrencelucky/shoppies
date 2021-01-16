@@ -14,13 +14,13 @@
   -moz-border-radius: 10px;
   -ms-border-radius: 10px;
   -o-border-radius: 10px;
-  transition: all 0.5s ease-in;
-  -webkit-transition: all 0.5s ease-in;
-  -moz-transition: all 0.5s ease-in;
-  -ms-transition: all 0.5s ease-in;
-  -o-transition: all 0.5s ease-in;
-  animation: fadeIn 0.5s ease-in;
-  -webkit-animation: fadeIn 0.5s ease-in;
+  transition: all 0.5s;
+  -webkit-transition: all 0.5s;
+  -moz-transition: all 0.5s;
+  -ms-transition: all 0.5s;
+  -o-transition: all 0.5s;
+  animation: fadeIn 0.5s;
+  -webkit-animation: fadeIn 0.5s;
 
   @media screen and (max-width: 600px) {
     width: 35rem;
@@ -28,12 +28,13 @@
 
   @media screen and (max-width: 430px) {
     width: 25rem;
+    height: fit-content;
+    padding: 2rem;
   }
 
   @media screen and (max-width: 375px) {
     bottom: 3rem;
     right: 2rem;
-    padding: 1rem;
   }
 
   p {
