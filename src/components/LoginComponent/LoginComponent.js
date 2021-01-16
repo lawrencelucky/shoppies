@@ -98,7 +98,7 @@ const LoginComponent = ({ setUser, setNotification }) => {
       ) : (
         <>
           {displayLogin && (
-            <div data-aos='fade-up' className='login__container'>
+            <div className='login__container'>
               <form onSubmit={signinHandler}>
                 <input
                   value={email}
