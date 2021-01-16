@@ -38,6 +38,7 @@ const LoginComponent = ({ setUser, setNotification }) => {
           error.message !== 't is not a function'
         ) {
           setNotification(error.message);
+          console.log(error.message);
           setLoading(false);
         }
 
